@@ -25,12 +25,15 @@ const deleteTaskHelper = (id) => {
 };
 
 export const getDate = () => (dispatch) =>
-  axios.get(endPoint).then(({ data }) => dispatch(getDateHelper(data)));
+  axios.get(endPoint).then((data) => {
+    console.log(data);
+    dispatch(getDateHelper(data.data));
+  });
 
 export const addTask = (text) => (dispatch) =>
   axios.post(endPoint, text).then(({ data }) => dispatch(addTaskHelper(data)));
 
 export const deleteTask = (id) => (dispatch) =>
-  axios
-    .delete(`${endPoint}/${id}`)
-    .then(({ data }) => dispatch(deleteTaskHelper(data)));
+  axios.delete(`${endPoint}/${id}`).then((data) => {
+    dispatch(deleteTaskHelper(data.data));
+  });

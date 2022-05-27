@@ -4,6 +4,8 @@ import { Grid } from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 
+import moment from "moment";
+
 import { deleteTask } from "../../redux/actions/actions";
 
 const Task = ({ date, text, id }) => {
@@ -12,7 +14,7 @@ const Task = ({ date, text, id }) => {
     <ListItem style={{ marginBottom: "10px" }}>
       <Grid container spacing={3}>
         <Grid sm={3} item style={{ background: "red" }}>
-          {date}
+          {moment(date * 1000).format("DD-MM-yyyy")}
         </Grid>
         <Grid sm={8} item style={{ background: "green" }}>
           {text}

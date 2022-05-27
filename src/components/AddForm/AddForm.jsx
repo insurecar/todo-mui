@@ -67,6 +67,7 @@ const AddForm = ({ classes: { header, inputTask, btnSubmit } }) => {
       text: inputText,
     };
     dispatch(addTask(task));
+    setInputText("");
   };
 
   return (
